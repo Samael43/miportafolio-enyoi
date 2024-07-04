@@ -1,0 +1,741 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    /*scroll-behavior: smooth; Este comando es para desplazar suavemente la pagina*/
+    font-family: 'Poppins', 'Sans-serif';
+}
+
+:root {
+    --bg-color: #000;
+    --secondary-color: #111010;
+    --text-color: #fff;
+    --main-color: #10a9e6;
+}
+
+html{
+    font-size: 65.5%;
+    /*El overflow x hidden es para corregir el desplazamiento en este eje que tiene un espacio vacio*/
+}
+
+body {
+    background: var(--bg-color);
+    font-family: 'Poppins', 'Sans-serif';
+    color: var(--text-color);
+}
+
+/* Personalizar el ancho y el color de la barra de desplazamiento */
+
+html::-webkit-scrollbar {
+    width: 0.92rem;
+}
+
+/* Personalizar el estilo del carril de desplazamiento */
+
+html::-webkit-scrollbar-track {
+    background: #ffffffe8;
+    border-radius: 15px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); Es una clase de sombra a al elemento tambien se puede usar en la barra*/
+    
+}
+
+/* Personalizar el estilo del deslizador*/
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 16px rgba(0,0,0,0.4);
+    
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    -webkit-box-shadow: 0 0 10px 5px #000;
+}
+
+html::-webkit-scrollbar-thumb:active {
+    -webkit-box-shadow: 0 0 10px 8px #000;
+  } /*En el caso de querer agg algo mas cuando se da click y se mantiene presionado*/
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    /*filter: drop-shadow(50px);*/
+    background: rgba(0, 0, 0, 0.82);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--main-color);
+    font-weight: 800;
+    /* cursor: pointer; funciona para cambiar el aspecto del cursor al pasar por el elemento deseado, sin embargo en este caso parece de default*/
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.18);
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.4s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover, .navbar a.active{
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+
+@media (max-width:995px){
+    #menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid var(--main-color);
+        border-bottom: 3px solid var(--main-color);
+        border-top-left-radius: 2rem;
+        padding: 1rem 3%;
+        background-color: var(--secondary-color);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .navbar a:hover,
+    .navbar .active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid var(--main-color);
+    }
+} 
+
+/*Page Body*/
+
+section {
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background: var(--bg-color);
+}
+
+.home-content{
+    width: 100vw;
+}
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home .home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+span{
+    color: var(--main-color);
+}
+
+.home-img{
+    border-radius: 50%;
+}
+
+.home-img img{
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.home-img img:hover{
+    transform: scale(1.01);
+    filter: drop-shadow(0 0 25px var(--main-color))
+
+}
+
+.home-content p{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    font-size: 2rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem;
+    transition: 0.4s ease;
+}
+
+.social-icons a:hover{
+    transform: scale(1.03) translateY(-5px);
+    background-color: var(--main-color);
+    color: var(--text-color);
+    box-shadow: 0 0 28px var(--main-color);
+}
+
+.btn{
+    display: inline-flex;
+    padding: 1.2rem 1.2rem;
+    background: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.5rem;
+    color: var(--main-color);
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    /*cursor: pointer (viene por default)*/
+}
+
+.btn:hover{
+    transform: scale(1.03);
+    background-color: var(--main-color);
+    color: var(--text-color);
+    box-shadow: 0 0 50px var(--main-color);
+}
+
+/*.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+} Cambio del elemento innecesario, ya se hizo arriba*/
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::before{
+    content: 'Back-End Developer';
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.typing-text span::after{
+    content: '';
+    background: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.7s infinite, typing 20s steps(18) infinite;
+}
+
+@keyframes cursor{
+    to {
+        border-left: 3px solid var(--main-color);
+    }
+}
+
+@keyframes words{
+    0%, 20% {
+        content: 'Back-E Developer';
+    }
+    21%, 40% {
+        content: 'Front-E Developer';
+    }
+    41%, 60% {
+        content: 'Software Developer';
+    }
+    61%, 80% {
+        content: 'Web Designer';
+    }
+    81%, 100% {
+        content: 'Test Draft1';
+    }
+}
+
+@keyframes typing {
+    10%, 15%,
+    30%, 35%,
+    50%, 55%,
+    70%, 75%,
+    90%, 95% {
+        width: 0;
+    }
+    5%, 20%,
+    25%, 40%,
+    45%, 60%,
+    65%, 80%, 85%{
+        width: calc(100% + 8px);
+    }
+}
+
+@media (max-width:1000px){
+    .home {
+        gap: 4rem;
+    }
+}
+
+@media (max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+    .home .home-content h3 {
+        font-size: 2.5rem;
+    }
+    .home .home-content h1{
+        font-size: 5rem;
+    }
+    .home-img img{
+        width: 70vw;
+        margin-top: 3.8rem;
+    }
+}
+
+@media (max-width:891px){
+
+    .home .home-content h1 {
+        margin: 0 3.8rem;
+    }
+    .home .home-content h3 {
+        margin: 0 3.8rem;
+    }
+    .home .home-content p {
+        margin: 1rem 3.8rem;
+    }
+    .home .home-content .social-icons {
+        text-align: center;
+    }
+    .home .home-content a {
+        text-align: center;
+    }
+
+    .home .home-content .btn-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    /*Solución al botón configurado a la izquierda*/
+}
+/*Services section*/
+
+.services{
+    min-height: auto;
+    background: var(--secondary-color);
+}
+
+/*Afectará a todos los heading */
+.heading{
+    text-align: center;
+    font-size: 5.5rem;
+    font-weight: 550;
+    margin-bottom: 4rem;
+}
+
+/*Afectará a todos los heading */
+.services-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.3rem;
+}
+
+.boxservices{
+    background: var(--main-color);
+    height: 300px;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.boxservices:hover{
+    background: var(--secondary-color);
+    color: var(--main-color);
+    transform: scale(1.03);
+    border: 1px solid var(--main-color);
+}
+
+.boxservices .infoservices{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-height: 200px;
+    justify-content: center;
+    align-items: baseline;
+    padding: 5em;
+}
+
+.infoservices h4{
+    font-size: 2.5rem;
+    font-weight: 580;
+    margin-bottom: 1rem;
+}
+
+.infoservices p {
+    font-size: 1.6rem;
+    max-height: 100px;
+    margin: auto;
+    font-weight: 450;
+}
+
+@media(max-width:900px){
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+    .services-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/*Skills section*/
+
+.skillsdiv{
+    min-height: auto;
+    background: var(--bg-color);
+}
+
+.main-skills-container{
+    background: #078aef70;
+    color: var(--text-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.skillsdiv .row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    gap: 1.8rem;
+}
+
+.skillsdiv .main-skills-container .bar {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 1rem;
+    background: var(--bg-color);
+    transition: 0.4s ease;
+    text-align: center; /*Texto fuera de lugar Java Script Skills Section*/
+    cursor: pointer;
+}
+
+.skillsdiv .main-skills-container .bar:hover {
+    box-shadow: 0 2px 20px var(--main-color);
+    transform: scale(1.03);
+}
+
+.main-skills-container .bar .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.main-skills-container .bar .info span{
+    font-size: 2rem;
+    font-weight: 550;
+    margin-left: 0.5rem;
+}
+
+@media(max-width:600px){
+    .skillsdiv .main-skills-container{
+        width: 100%;
+    }
+
+    .skillsdiv .row {
+        margin: 1rem;
+        padding: 1rem 0.1rem 1rem 0.1rem;
+    }
+}
+
+/*Contact Section*/
+
+.contactdiv {
+    background: #080808;
+}
+
+#contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+#contact form .input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#contact form .input-box input,
+#contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 1rem;
+    margin: 1rem 0;
+    resize: none; /*Atributo para evitar la expansión del espacio de texto*/
+}
+
+#contact form .Sendbtn {
+    display: inline-block;
+    padding: 1rem 1.2rem;
+    background: var(--bg-color);
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#contact form .Sendbtn:hover {
+    transform: scale(1.03);
+    background: var(--main-color);
+    color: var(--text-color);
+    box-shadow: 0 0 23px var(--main-color);
+
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 24px 0 10px;
+    background-color: var(--main-color);
+}
+
+footer .social {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+footer .social a {
+    display: inline-block;
+    font-size: 2.1rem;
+    color: #000;
+    border: 0.2rem solid var(--bg-color);
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 10px;
+    line-height: 3.6rem;
+    transition: 0.4s ease;
+}
+
+footer .social a:hover {
+    transform: scale(1.03) translateY(-5px);
+    background-color: #000;
+    color: var(--main-color);
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+footer ul li {
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+footer ul li a {
+    color: #000;
+    border-bottom: 3px solid transparent;
+    font-weight: 480;
+    transition: 0.4s ease;
+}
+
+footer ul li a:hover {
+    border-bottom: 2px solid #000;
+}
+
+footer p {
+    text-align: center;
+    margin-top: 3.1rem;
+    font-size: 1rem;
+    color: #000;
+    
+}
+
+@media(max-width:1285px) {
+    html {
+        font-size: 55%;
+    }
+    .services-container {
+        padding-bottom: 4rem;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0;
+    }
+}
+
+@media(max-width:991) {
+    .header {
+        padding: 2rem 3%;
+    }
+    section {
+        padding: 10rem 3% 2rem;
+    }
+    .services {
+        padding-bottom: 7rem;
+    }
+    footer {
+        padding: 2rem 3%;
+    }
+}
+
+
+@media(max-width:891) {
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+    .services-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/*lineas de ayuda*/
+
+/*lineas de ayuda header*/
+
+
+/*header{
+    border: 3px solid gold;
+}
+section{
+    border: 3px solid red;
+}*/
+
+
+/* lineas de ayuda services section*/ 
+
+
+/*.services{
+    border: 3px solid blue;
+}
+.services h2{
+    border: 3px solid skyblue;
+}
+.services-container{
+    border: 3px solid darkgreen;
+}
+.boxservices{
+    border: 3px solid red;
+}
+.infoservices{
+    border: 3px solid greenyellow;
+}
+
+
+/* lineas de ayuda skills section*/ 
+
+/*.skillsdiv{
+    border: 2px solid yellow;
+}
+
+.skillsdiv .header{
+    border: 2px solid orangered;
+}
+
+.main-skills-container{
+    border: 2px solid blue;
+}
+
+.row{
+    border: 2px solid red;
+}
+
+.bar{
+    border: 2px solid green;
+}
+
+.skillsdiv .bar .info{
+    border: 2px solid purple;
+}*/
+
+/*Lineas de ayuda contact section*/
+/*.contactdiv{
+    border: 2px solid purple;
+}
+
+form{
+    border: 2px solid red;
+}
+
+.input-box{
+    border: 2px solid blue;
+}*/
+
+/*Lineas de ayuda Footer section*/
+
+/*footer {
+    border: 2px solid red;
+}
+
+.social {
+    border: 2px solid blue;
+}
+
+ul{
+    border: 2px solid green;
+}
+
+footer p {
+    border: 2px solid pink;
+}
